@@ -1,0 +1,34 @@
+
+{% extends "bootstrap/base.html" %}
+{% block content %}
+
+<div class="container">
+  <div class="jumbotron" style="background-color:#1daeff !important;">
+    <h2 style="color:#fff;">Gender Classifier</h2>
+    <p style="color:#fff;">Motto - When You Build Something , Make It Everyone To Explore</p>
+  </div>
+
+</div>
+
+
+<div class="panel-group">
+    <div class="panel panel-primary">
+      <div class="panel-heading" style="background-color:#1563ff ">Gender Classifier</div>
+      <div class="panel-body">
+
+      	<form action="{{ url_for('predict')}}" method="POST">
+			<input type="text" name="namequery">
+			<button type="submit" class="btn btn-primary">Predict</button>
+			</form>
+
+
+      </div>
+    </div>
+
+  {% endblock %}
+
+{% block styles %}
+{{super()}} <!-- Allows Javascripts and other styles to be inclusive in bootstrap -->
+<link rel="stylesheet"
+      href="{{url_for('.static', filename='css/styles.css')}}">
+{% endblock %}
